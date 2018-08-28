@@ -2,13 +2,6 @@ FROM jboss/keycloak:4.3.0.Final
 
 COPY --chown=jboss:jboss "themes" "/opt/jboss/keycloak/themes"
 
-#CMD ["-b", "0.0.0.0", "--server-config", "datapunt.xml"]
+RUN sed -i.bak "s/<web-context>auth<\/web-context>/<web-context>authn\/v1\/auth<\/web-context>/g" "/opt/jboss/keycloak/standalone/configuration/standalone.xml"
 
-#FROM golang:latest
-#
-#WORKDIR /go/src/github.com/amsterdam/authz
-#COPY . /go/src/github.com/amsterdam/authz
-#RUN go get github.com/sparrc/gdm
-#RUN gdm restore
-#RUN go install
-#ENTRYPOINT ["authz"]
+#CMD ["-b", "0.0.0.0", "--server-config", "standalone.xml"]
