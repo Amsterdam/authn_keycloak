@@ -1,14 +1,14 @@
-version: '3'
+version: '3.0'
 
-volumes:
-  postgres_data:
-    driver: local
+#volumes:
+#  postgres_data:
+#    driver: local
 
 services:
   postgres:
     image: postgres
-    volumes:
-    - postgres_data:/var/lib/postgresql/data
+#    volumes:
+#    - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -24,6 +24,8 @@ services:
       DB_PASSWORD: keycloak123
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
+      #KEYCLOAK_LOGLEVEL: DEBUG
+      #ROOT_LOGLEVEL: DEBUG
       # Uncomment the line below if you want to specify JDBC parameters. The
       # parameter below is just an example, and it shouldn't be used in
       # production without knowledge. It is highly recommended that you read the
