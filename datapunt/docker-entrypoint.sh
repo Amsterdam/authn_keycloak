@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "KEYCLOAK_WEB_CONTEXT: ${KEYCLOAK_WEB_CONTEXT}"
-
 pushd /opt/jboss/keycloak
 
 bin/jboss-cli.sh --file=/datapunt/standalone-configuration.cli
@@ -16,5 +14,6 @@ popd
 # Start Keycloak #
 ##################
 
-exec /opt/jboss/docker-entrypoint.sh "$@"
+HOST_IP=`hostname -i`
+exec /opt/jboss/docker-entrypoint.sh -b "${HOST_IP}" -bprivate "${HOST_IP}" --server-config "standalone-ha.xml" "$@"
 exit $?
