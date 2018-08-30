@@ -15,5 +15,6 @@ popd
 ##################
 
 HOST_IP=`hostname -i`
-exec /opt/jboss/docker-entrypoint.sh -b "${HOST_IP}" -bprivate "${HOST_IP}" --server-config "standalone-ha.xml" "$@"
+#exec /opt/jboss/docker-entrypoint.sh -b "${HOST_IP}" -bprivate "${HOST_IP}" --server-config "standalone-ha.xml" "$@"
+exec /opt/jboss/docker-entrypoint.sh -b "${HOST_IP}" --server-config "standalone.xml" "$@"
 exit $?
