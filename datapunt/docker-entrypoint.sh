@@ -19,14 +19,12 @@ popd
 HOST_IP=`hostname -i`
 exec /opt/jboss/docker-entrypoint.sh \
     -b "${HOST_IP}" \
-    -Djboss.http.port=8111 \
     --server-config "standalone.xml" \
-    "$@"
+    "$@" #-Djboss.http.port=8111
 
 #exec /opt/jboss/docker-entrypoint.sh \
 #    -b "${HOST_IP}" \
 #    -bprivate "${HOST_IP}" \
-#    -Djboss.http.port=8111 \
 #    --server-config "standalone-ha.xml" \
 #    "$@"
 
