@@ -4,7 +4,7 @@ COPY --chown=jboss:jboss "themes" "/opt/jboss/keycloak/themes"
 
 COPY --chown=jboss:jboss datapunt /datapunt
 
-EXPOSE 7600
+EXPOSE 8112
 EXPOSE 45688/UDP
 EXPOSE 45700
 EXPOSE 55200/UDP

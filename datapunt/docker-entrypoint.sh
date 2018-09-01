@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cp -a /datapunt/standalone*.xml /opt/jboss/keycloak/standalone/configuration/
+
 pushd /opt/jboss/keycloak
 
 bin/jboss-cli.sh --file=/datapunt/standalone-configuration.cli
