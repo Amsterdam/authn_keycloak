@@ -5,6 +5,8 @@ COPY --chown=jboss:jboss "themes" "/opt/jboss/keycloak/themes"
 COPY --chown=jboss:jboss datapunt /datapunt
 
 EXPOSE 7600
+EXPOSE 45688/UDP
+EXPOSE 45700
 EXPOSE 55200/UDP
 
 #RUN sed -i.bak "s/<web-context>auth<\/web-context>/<web-context>authn\/v1<\/web-context>/g" "/opt/jboss/keycloak/standalone/configuration/standalone.xml"
