@@ -33,7 +33,13 @@ services:
       #JDBC_PARAMS: "ssl=true"
     ports:
     - "8111:8080"
-    command: ["-b", "0.0.0.0", "--server-config", "standalone-ha.xml"]
+    - "8112:8112"
+    - "7600:7600"
+    - "45688:45688/udp"
+    - "45700:45700"
+    - "55200:55200/udp"
+    #command: "--server-config=standalone-ha.xml -bprivate=`hostname -i`"
+
 
     depends_on:
     - postgres
