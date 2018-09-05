@@ -3,8 +3,12 @@ FROM jboss/keycloak:4.3.0.Final
 COPY --chown=jboss:jboss "themes" "/opt/jboss/keycloak/themes"
 #COPY --chown=jboss:jboss "standalone.xml" "/opt/jboss/keycloak/standalone/configuration/"
 
-#EXPOSE 8111
-EXPOSE 9993
+# Management HTTP:
+EXPOSE 9990
+# Management HTTPS:
+#EXPOSE 9993
+
+# Private (for clustering):
 #EXPOSE 45688/UDP
 #EXPOSE 45700
 #EXPOSE 55200/UDP
