@@ -1,3 +1,3 @@
 embed-server --server-config=standalone-ha.xml --std-out=echo
-run-batch --file=/datapunt/web-context.cli
+/subsystem=keycloak-server:write-attribute(name=web-context,value=kc/v1)
 stop-embedded-server
